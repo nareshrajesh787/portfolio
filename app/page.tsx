@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Github, Linkedin, ExternalLink, Sparkles, Network, TerminalSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -19,37 +20,42 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto w-full flex flex-col items-center text-center z-10 relative">
           <FadeIn delay={0.1} direction="down">
+            <div className="mb-6 w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-full border-[6px] border-white shadow-2xl overflow-hidden bg-slate-100 relative mx-auto flex items-center justify-center group">
+              <Image src="/IMG_3252.jpeg" alt="Naresh Rajesh" fill sizes="(max-width: 768px) 150px, 250px" priority className="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            
             <Badge variant="outline" className="mb-8 px-4 py-1.5 text-sm font-medium border-slate-200 shadow-[0_2px_10px_rgba(0,0,0,0.04)] bg-white/50 backdrop-blur-sm rounded-full text-slate-600">
               <span className="flex items-center gap-2">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
                 </span>
-                Digital Technology Student of the Year
+                Open to Fall & Summer Internships
               </span>
             </Badge>
           </FadeIn>
 
           <FadeIn delay={0.2}>
             <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold text-slate-900 tracking-tighter mb-6 leading-[1.1]">
-              Engineer ideas. <br />
+              Engineer AI systems. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-accent-500">
-                Execute strategy.
+                Drive business strategy.
               </span>
             </h1>
             
             <p className="text-lg md:text-xl text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed tracking-wide font-medium">
-              I'm <span className="text-slate-900 font-semibold">Naresh Rajesh</span>, building data-driven AI systems and driving business growth. Turning complexity into clarity.
+              I'm <span className="text-slate-900 font-semibold">Naresh Rajesh</span>, building agentic AI workflows and leveraging quantitative research to shape high-stakes decisions. 
+              Recognized as a Wharton Global Finalist, FBLA National Winner, and Digital Technology SOTY.
             </p>
           </FadeIn>
 
           <FadeIn delay={0.4} direction="up" className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-            <Button asChild size="lg" className="h-14 px-8 text-base rounded-2xl w-full sm:w-auto shadow-xl shadow-brand-500/20 bg-brand-600 hover:bg-brand-700 text-white transition-all hover:scale-[1.02] hover:-translate-y-0.5">
+            <Button asChild size="lg" className="h-14 px-8 text-base rounded-2xl w-full sm:w-auto shadow-xl shadow-brand-500/20 bg-brand-600 hover:bg-brand-700 text-white transition-all hover:scale-[1.02] hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2">
               <Link href="/case-studies">
                 Explore My Work <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="h-14 px-8 text-base rounded-2xl w-full sm:w-auto bg-white/50 backdrop-blur-sm border-slate-200 hover:bg-slate-50 text-slate-700 transition-all">
+            <Button asChild variant="outline" size="lg" className="h-14 px-8 text-base rounded-2xl w-full sm:w-auto bg-white/50 backdrop-blur-sm border-slate-200 hover:bg-slate-50 text-slate-700 transition-all focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2">
               <Link href="/about">
                 Read My Story
               </Link>
@@ -67,22 +73,22 @@ export default function Home() {
                 <div className="h-12 w-12 rounded-2xl bg-brand-50 border border-brand-100 flex items-center justify-center mb-6 text-brand-600 shadow-sm">
                   <TerminalSquare className="h-6 w-6" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Systems Engineering</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">Architecting robust, scalable software utilizing React, Python, and modern cloud infrastructure.</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Agentic AI & LLMs</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">Building autonomous workflows and intelligent applications using tools like OpenAI, Gemini, and Python to solve complex, real-world problems.</p>
               </div>
               <div className="flex flex-col items-center text-center md:items-start md:text-left">
                 <div className="h-12 w-12 rounded-2xl bg-warm-50 border border-warm-100 flex items-center justify-center mb-6 text-warm-600 shadow-sm">
                   <Sparkles className="h-6 w-6" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Applied AI/ML</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">Integrating LLMs, computer vision, and predictive models into tangible product experiences.</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Full-Stack Engineering</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">Architecting fast, scalable platforms with React, Next.js, Django, and modern cloud infrastructure to deliver seamless user experiences.</p>
               </div>
               <div className="flex flex-col items-center text-center md:items-start md:text-left">
                 <div className="h-12 w-12 rounded-2xl bg-accent-50 border border-accent-100 flex items-center justify-center mb-6 text-accent-600 shadow-sm">
                   <Network className="h-6 w-6" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Strategic Execution</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">Translating deep technical capabilities into clear market advantages and operational excellence.</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Quantitative Strategy</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">Applying data research, statistical analysis, and financial modeling to craft strategies that drive high-stakes business decisions.</p>
               </div>
             </div>
           </FadeIn>
@@ -97,7 +103,7 @@ export default function Home() {
               <div className="max-w-2xl">
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Selected Projects</h2>
                 <p className="text-slate-500 text-lg leading-relaxed">
-                  A curated selection of technical builds and strategic initiatives that demonstrate my approach to problem-solving.
+                  A look under the hood at the AI systems I've engineered and the quantitative research I've led.
                 </p>
               </div>
               <Button asChild variant="ghost" className="hidden md:flex items-center text-slate-600 hover:text-slate-900 hover:bg-slate-200/50 rounded-xl px-4 py-2 transition-all">
@@ -111,7 +117,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[400px]">
             {/* Main Featured Case Study - Span 2 cols */}
             <FadeIn delay={0.2} className="md:col-span-2 h-full">
-              <Link href="/case-studies" className="block h-full group">
+              <Link href="/case-studies" className="block h-full group focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-3xl">
                 <Card className="h-full flex flex-col overflow-hidden bg-white border-none shadow-sm hover:shadow-xl transition-all duration-500 rounded-3xl relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-brand-50/50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <CardHeader className="p-8 pb-4 relative z-10">
@@ -138,24 +144,24 @@ export default function Home() {
               </Link>
             </FadeIn>
 
-            {/* Strategy Case Study - Span 1 col */}
+            {/* Technical Case Study - Span 1 col */}
             <FadeIn delay={0.3} className="md:col-span-1 h-full">
-              <Link href="/case-studies" className="block h-full group">
+              <Link href="/case-studies" className="block h-full group focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-3xl">
                 <Card className="h-full flex flex-col overflow-hidden bg-white border-slate-200/60 shadow-sm hover:shadow-xl transition-all duration-500 rounded-3xl relative">
                   <CardHeader className="p-6 pb-4 relative z-10">
                     <div className="flex justify-between items-start mb-4">
-                      <Badge variant="secondary" className="bg-warm-100 text-warm-800 hover:bg-warm-100 border-none rounded-full px-3 py-1">Strategy</Badge>
-                      <ExternalLink className="h-5 w-5 text-slate-400 group-hover:text-warm-600 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" />
+                      <Badge variant="secondary" className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100 border-none rounded-full px-3 py-1">Full-Stack</Badge>
+                      <ExternalLink className="h-5 w-5 text-slate-400 group-hover:text-emerald-600 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-slate-900 leading-tight">Wharton Global Youth Investment</CardTitle>
+                    <CardTitle className="text-xl font-bold text-slate-900 leading-tight">PeerPoint</CardTitle>
                   </CardHeader>
                   <CardContent className="p-6 pt-0 flex-grow relative z-10">
                     <CardDescription className="text-slate-500 text-sm leading-relaxed">
-                      Global Finalist strategy blending algorithmic portfolio construction with fundamental market research.
+                      A Django-based academic platform using OpenAI to programmatically generate structured peer review feedback.
                     </CardDescription>
                   </CardContent>
                   <div className="p-6 mt-auto w-full relative z-10">
-                    <div className="text-warm-600 text-sm font-medium flex items-center transform group-hover:translate-x-2 transition-transform">
+                    <div className="text-emerald-600 text-sm font-medium flex items-center transform group-hover:translate-x-2 transition-transform">
                       View Details <ArrowRight className="ml-1 h-4 w-4" />
                     </div>
                   </div>
@@ -172,19 +178,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Let's Build Section */}
-      <section className="w-full bg-slate-900 text-white py-32 relative overflow-hidden">
-        {/* Abstract shapes */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-brand-500/20 to-transparent pointer-events-none" />
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      {/* Let's Connect Section */}
+      <section className="w-full relative py-32 md:py-40 overflow-hidden bg-brand-600">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-700 via-brand-600 to-accent-600 z-0"></div>
+        
+        {/* Abstract glowing shapes */}
+        <div className="absolute top-[-50%] right-[-10%] w-[80%] h-[150%] bg-white/10 blur-[120px] rounded-full mix-blend-overlay pointer-events-none z-0" />
+        <div className="absolute bottom-[-50%] left-[-10%] w-[60%] h-[120%] bg-accent-300/20 blur-[100px] rounded-full mix-blend-screen pointer-events-none z-0" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <FadeIn delay={0.1}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Ready to build something impactful?</h2>
-            <p className="text-lg text-slate-400 mb-10 leading-relaxed font-medium">
-              Whether you need strategic system architecture or an AI-powered MVP, I bridge the gap between complex engineering and business value.
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight text-white drop-shadow-md">Let's Connect.</h2>
+            <p className="text-xl md:text-2xl text-brand-50 mb-12 leading-relaxed font-medium drop-shadow-sm max-w-2xl mx-auto">
+              Currently seeking local internships in software engineering and data analysis.
             </p>
-            <Button asChild size="lg" className="rounded-2xl h-14 px-8 bg-white text-slate-900 hover:bg-slate-100 hover:scale-[1.02] transition-transform font-bold text-base shadow-xl">
-              <a href="mailto:placeholder@example.com">Start a Conversation</a>
-            </Button>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+              <a 
+                href="mailto:nareshrajesh787@gmail.com" 
+                className="inline-flex items-center justify-center h-14 px-8 text-base font-bold rounded-2xl text-brand-900 bg-white hover:bg-slate-50 transition-all hover:scale-[1.02] shadow-[0_8px_30px_rgb(0,0,0,0.15)] focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-600 focus:outline-none group/btn w-full sm:w-auto"
+              >
+                Get in Touch <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform" />
+              </a>
+              <a 
+                href="/Naresh_Rajesh_Resume.pdf" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center h-14 px-8 text-base font-bold rounded-2xl text-white bg-white/10 border border-white/20 hover:bg-white/20 backdrop-blur-md transition-all hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-600 focus:outline-none w-full sm:w-auto"
+              >
+                View Resume
+              </a>
+            </div>
           </FadeIn>
         </div>
       </section>

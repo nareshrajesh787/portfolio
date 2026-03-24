@@ -9,31 +9,31 @@ export function Footer() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           <div className="md:col-span-1">
-            <Link href="/" className="font-bold text-slate-900 tracking-tight text-xl mb-4 block">
+            <Link href="/" className="font-bold text-slate-900 tracking-tight text-xl mb-4 block focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-md">
               Naresh<span className="text-slate-400">Rajesh</span>
             </Link>
             <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
-              AI Engineer & Business Strategist building data-driven solutions and high-performing teams.
+              AI Engineer & Business Strategist building data-driven AI systems and driving growth.
             </p>
           </div>
           
           <div className="flex flex-col space-y-3">
             <h4 className="font-bold text-slate-900 text-xs tracking-wider uppercase mb-2">Navigation</h4>
-            <Link href="/" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit">Home</Link>
-            <Link href="/case-studies" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit">Work</Link>
-            <Link href="/leadership" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit">Leadership</Link>
-            <Link href="/about" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit">About</Link>
+            <Link href="/" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">Home</Link>
+            <Link href="/case-studies" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">Case Studies</Link>
+            <Link href="/leadership" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">Leadership</Link>
+            <Link href="/about" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">About</Link>
           </div>
 
           <div className="flex flex-col space-y-3">
             <h4 className="font-bold text-slate-900 text-xs tracking-wider uppercase mb-2">Connect</h4>
-            <a href="mailto:placeholder@example.com" className="group flex items-center text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit">
+            <a href="mailto:nareshrajesh787@gmail.com" aria-label="Email Naresh Rajesh" className="group flex items-center text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">
               Email <ArrowUpRight className="ml-1 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="group flex items-center text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit">
+            <a href="https://github.com/nareshrajesh787" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" className="group flex items-center text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">
               GitHub <ArrowUpRight className="ml-1 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="group flex items-center text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit">
+            <a href="https://linkedin.com/in/nareshrajesh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="group flex items-center text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">
               LinkedIn <ArrowUpRight className="ml-1 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
           </div>

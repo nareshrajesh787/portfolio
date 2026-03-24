@@ -19,10 +19,9 @@ export function Navbar() {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/case-studies", label: "Work" },
-    { href: "/leadership", label: "Leadership" },
-    { href: "/awards", label: "Awards" },
+    { href: "/case-studies", label: "Case Studies" },
     { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
@@ -53,6 +52,14 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <a 
+              href="/Naresh_Rajesh_Resume.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="ml-4 px-5 py-2 rounded-full bg-slate-900 text-white hover:bg-brand-600 hover:scale-105 focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none transition-all text-[13px] font-bold tracking-widest uppercase shadow-md pointer-events-auto"
+            >
+              Resume
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -89,6 +96,15 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <a 
+                href="/Naresh_Rajesh_Resume.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="block px-4 py-3 rounded-xl text-sm tracking-widest uppercase font-bold text-white bg-slate-900 hover:bg-brand-600 focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none transition-colors mt-2 text-center shadow-sm"
+              >
+                Download Resume
+              </a>
             </div>
           </motion.div>
         )}
