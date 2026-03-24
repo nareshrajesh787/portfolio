@@ -41,7 +41,7 @@ export default function ContactPage() {
                   </div>
                 </a>
 
-                <a href="https://www.linkedin.com/in/naresh-rajesh/" target="_blank" rel="noopener noreferrer" className="flex items-center p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-blue-50 hover:border-blue-200 transition-colors group">
+                <a href="https://www.linkedin.com/in/naresh-rajesh" target="_blank" rel="noopener noreferrer" className="flex items-center p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-blue-50 hover:border-blue-200 transition-colors group">
                   <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mr-4 shadow-sm group-hover:scale-110 transition-transform">
                     <Linkedin className="w-6 h-6 text-slate-400 group-hover:text-blue-500 transition-colors" />
                   </div>

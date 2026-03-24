@@ -5,6 +5,6 @@ export const metadata: Metadata = {
   description: "Explore my projects in AI, Machine Learning, and robust technical implementations.",
 };
 
-export default function CaseStudiesLayout({ children }: { children: React.ReactNode }) {
+export default function ProjectsLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

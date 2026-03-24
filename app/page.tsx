@@ -51,7 +51,7 @@ export default function Home() {
 
           <FadeIn delay={0.4} direction="up" className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <Button asChild size="lg" className="h-14 px-8 text-base rounded-2xl w-full sm:w-auto shadow-xl shadow-brand-500/20 bg-brand-600 hover:bg-brand-700 text-white transition-all hover:scale-[1.02] hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2">
-              <Link href="/case-studies">
+              <Link href="/projects">
                 Explore My Work <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
@@ -107,8 +107,8 @@ export default function Home() {
                 </p>
               </div>
               <Button asChild variant="ghost" className="hidden md:flex items-center text-slate-600 hover:text-slate-900 hover:bg-slate-200/50 rounded-xl px-4 py-2 transition-all">
-                <Link href="/case-studies">
-                  View all cases <ArrowRight className="ml-2 h-4 w-4" />
+                <Link href="/projects">
+                  View all projects <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -117,27 +117,39 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[400px]">
             {/* Main Featured Case Study - Span 2 cols */}
             <FadeIn delay={0.2} className="md:col-span-2 h-full">
-              <Link href="/case-studies" className="block h-full group focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-3xl">
-                <Card className="h-full flex flex-col overflow-hidden bg-white border-none shadow-sm hover:shadow-xl transition-all duration-500 rounded-3xl relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-50/50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <CardHeader className="p-8 pb-4 relative z-10">
-                    <div className="flex justify-between items-start mb-4">
+              <Link href="/projects" className="block h-full group focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-3xl">
+                <Card className="h-full flex flex-col md:flex-row overflow-hidden bg-white border-none shadow-sm hover:shadow-xl transition-all duration-500 rounded-3xl relative group p-0">
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-50/80 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="flex flex-col flex-1 p-8 md:p-10 relative z-10">
+                    <div className="flex justify-between items-start mb-6">
                       <div className="flex gap-2">
-                        <Badge variant="secondary" className="bg-brand-100 text-brand-800 hover:bg-brand-100 border-none rounded-full px-3 py-1">AI Integration</Badge>
-                        <Badge variant="secondary" className="bg-slate-100 text-slate-800 hover:bg-slate-100 border-none rounded-full px-3 py-1">Web App</Badge>
+                        <Badge variant="secondary" className="bg-brand-100 text-brand-800 hover:bg-brand-100 border-none rounded-full px-3 py-1 font-semibold tracking-wide">AI Integration</Badge>
+                        <Badge variant="secondary" className="bg-slate-100 text-slate-800 hover:bg-slate-100 border-none rounded-full px-3 py-1 font-semibold tracking-wide">Web App</Badge>
                       </div>
                       <ExternalLink className="h-5 w-5 text-slate-400 group-hover:text-brand-600 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" />
                     </div>
-                    <CardTitle className="text-2xl md:text-3xl font-bold text-slate-900">SpeechScore</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-8 pt-0 flex-grow relative z-10">
-                    <CardDescription className="text-slate-500 text-base leading-relaxed max-w-md">
+                    
+                    <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4 group-hover:text-brand-700 transition-colors">SpeechScore</h3>
+                    <p className="text-slate-500 text-base md:text-lg leading-relaxed max-w-md mb-8">
                       A full-stack application architected to analyze public speaking using real-time ML processing. Providing actionable, data-driven communication coaching to end-users.
-                    </CardDescription>
-                  </CardContent>
-                  <div className="p-8 mt-auto w-full relative z-10 flex justify-end">
-                    <div className="text-brand-600 font-medium flex items-center transform group-hover:translate-x-2 transition-transform">
-                      Read Case Study <ArrowRight className="ml-2 h-4 w-4" />
+                    </p>
+                    
+                    <div className="mt-auto text-brand-600 font-bold flex items-center transform group-hover:translate-x-2 transition-transform text-lg">
+                      Read Project <ArrowRight className="ml-2 h-5 w-5" />
+                    </div>
+                  </div>
+                  
+                  <div className="relative md:w-5/12 flex-shrink-0 bg-slate-50/80 overflow-hidden border-l border-slate-100/50 flex items-center justify-center p-6 lg:p-10">
+                    <div className="w-full relative rounded-xl bg-white border border-slate-200/80 shadow-lg overflow-hidden group-hover:scale-105 group-hover:-translate-y-1 group-hover:shadow-xl transition-all duration-500 flex flex-col">
+                      <div className="h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
+                        <div className="w-2 h-2 rounded-full bg-slate-300"></div>
+                        <div className="w-2 h-2 rounded-full bg-slate-300"></div>
+                        <div className="w-2 h-2 rounded-full bg-slate-300"></div>
+                      </div>
+                      <div className="relative w-full aspect-[16/10] bg-slate-50">
+                        <Image src="/speechscore.png" alt="SpeechScore Display" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-top" />
+                      </div>
                     </div>
                   </div>
                 </Card>
@@ -146,23 +158,29 @@ export default function Home() {
 
             {/* Technical Case Study - Span 1 col */}
             <FadeIn delay={0.3} className="md:col-span-1 h-full">
-              <Link href="/case-studies" className="block h-full group focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-3xl">
-                <Card className="h-full flex flex-col overflow-hidden bg-white border-slate-200/60 shadow-sm hover:shadow-xl transition-all duration-500 rounded-3xl relative">
-                  <CardHeader className="p-6 pb-4 relative z-10">
-                    <div className="flex justify-between items-start mb-4">
-                      <Badge variant="secondary" className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100 border-none rounded-full px-3 py-1">Full-Stack</Badge>
+              <Link href="/projects" className="block h-full group focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-3xl">
+                <Card className="h-full flex flex-col overflow-hidden bg-white border border-slate-200/60 shadow-sm hover:shadow-xl transition-all duration-500 rounded-3xl relative group p-0">
+                  <div className="p-8 pb-6 relative z-10 flex-shrink-0">
+                    <div className="flex justify-between items-start mb-6">
+                      <Badge variant="secondary" className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100 border-none rounded-full px-3 py-1 font-semibold tracking-wide">Full-Stack</Badge>
                       <ExternalLink className="h-5 w-5 text-slate-400 group-hover:text-emerald-600 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-slate-900 leading-tight">PeerPoint</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-6 pt-0 flex-grow relative z-10">
-                    <CardDescription className="text-slate-500 text-sm leading-relaxed">
+                    <h3 className="text-2xl font-bold text-slate-900 leading-tight mb-3 group-hover:text-emerald-700 transition-colors">PeerPoint</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">
                       A Django-based academic platform using OpenAI to programmatically generate structured peer review feedback.
-                    </CardDescription>
-                  </CardContent>
-                  <div className="p-6 mt-auto w-full relative z-10">
-                    <div className="text-emerald-600 text-sm font-medium flex items-center transform group-hover:translate-x-2 transition-transform">
-                      View Details <ArrowRight className="ml-1 h-4 w-4" />
+                    </p>
+                  </div>
+                  
+                  <div className="relative flex-grow bg-slate-50/80 mt-2 border-t border-slate-100/50 flex flex-col justify-end px-6 pt-6 overflow-hidden rounded-b-3xl">
+                    <div className="w-full relative rounded-t-xl bg-white border border-slate-200/80 shadow border-b-0 overflow-hidden group-hover:-translate-y-2 transition-all duration-500 flex flex-col translate-y-3">
+                      <div className="h-5 bg-slate-100 border-b border-slate-200 flex items-center px-2.5 gap-1.5">
+                        <div className="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
+                      </div>
+                      <div className="relative w-full aspect-[16/10] bg-slate-50">
+                        <Image src="/Peerpoint.png" alt="PeerPoint Interface" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-top" />
+                      </div>
                     </div>
                   </div>
                 </Card>
@@ -172,7 +190,7 @@ export default function Home() {
 
           <FadeIn delay={0.4} className="mt-8 flex md:hidden justify-center">
             <Button asChild variant="outline" className="w-full rounded-xl h-14 bg-white shadow-sm font-medium text-slate-700">
-              <Link href="/case-studies">Explore All Case Studies</Link>
+              <Link href="/projects">Explore All Projects</Link>
             </Button>
           </FadeIn>
         </div>

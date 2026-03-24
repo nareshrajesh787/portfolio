@@ -20,8 +20,7 @@ export function Footer() {
           <div className="flex flex-col space-y-3">
             <h4 className="font-bold text-slate-900 text-xs tracking-wider uppercase mb-2">Navigation</h4>
             <Link href="/" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">Home</Link>
-            <Link href="/case-studies" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">Case Studies</Link>
-            <Link href="/leadership" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">Leadership</Link>
+            <Link href="/projects" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">Projects</Link>
             <Link href="/about" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">About</Link>
           </div>
 
@@ -33,7 +32,7 @@ export function Footer() {
             <a href="https://github.com/nareshrajesh787" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" className="group flex items-center text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">
               GitHub <ArrowUpRight className="ml-1 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
-            <a href="https://linkedin.com/in/nareshrajesh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="group flex items-center text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">
+            <a href="https://www.linkedin.com/in/naresh-rajesh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="group flex items-center text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">
               LinkedIn <ArrowUpRight className="ml-1 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
           </div>

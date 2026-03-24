@@ -82,7 +82,7 @@ const explorations = [
   }
 ];
 
-export default function CaseStudiesPage() {
+export default function ProjectsPage() {
   const [expandedId, setExpandedId] = useState<number | null>(null);
 
   const toggleExpand = (idx: number) => {
@@ -115,7 +115,7 @@ export default function CaseStudiesPage() {
                 <Sparkles className="w-7 h-7 text-brand-500" />
                 <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Featured Build</h2>
               </div>
-              <p className="text-slate-500 font-medium">Deep Dive Case Study</p>
+              <p className="text-slate-500 font-medium">Deep Dive Project</p>
             </div>
           </FadeIn>
 
@@ -251,7 +251,7 @@ export default function CaseStudiesPage() {
                      variant={expandedId === idx ? "default" : "outline"}
                      className={`relative z-10 w-full justify-between mt-auto border ${expandedId === idx ? "bg-brand-600 hover:bg-brand-700 text-white border-transparent" : "border-slate-200 hover:bg-slate-50 hover:text-brand-600 hover:border-brand-300"} rounded-xl font-bold h-12 px-5 text-sm transition-all duration-300 pointer-events-none`}
                    >
-                     {expandedId === idx ? "Close Details" : "View Case Study"}
+                     {expandedId === idx ? "Close Details" : "View Project"}
                      <ChevronDown className={`w-4 h-4 transition-transform duration-500 ${expandedId === idx ? "rotate-180" : ""}`} />
                    </Button>
                 </div>
