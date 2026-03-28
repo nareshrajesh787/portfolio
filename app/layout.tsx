@@ -8,7 +8,7 @@ import { Analytics } from "@/components/Analytics";
 const font = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nareshrajesh.com"), // Update with real production URL
+  metadataBase: new URL("https://nareshrajesh.vercel.app"), 
   title: {
     default: "Naresh Rajesh | Portfolio",
     template: "%s | Naresh Rajesh",
