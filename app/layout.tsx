@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     title: "Naresh Rajesh | Portfolio",
     description: "Applied AI Engineer & Business Strategist.",
   },
+  verification: {
+    google: "69B7-qjsMJnAmv_nHxgHEca1i9VdM65K9MdsPv_6kmE",
+  },
 };
 
 export default function RootLayout({
