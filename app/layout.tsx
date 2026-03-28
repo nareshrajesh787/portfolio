@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description: "Applied AI Engineer & Business Strategist.",
   },
   verification: {
-    google: "69B7-qjsMJnAmv_nHxgHEca1i9VdM65K9MdsPv_6kmE",
+    google: "mozfxnTRkHata4s0t7zHjmFFUiyaebitFl0G5r6u7Sg",
   },
 };
 
