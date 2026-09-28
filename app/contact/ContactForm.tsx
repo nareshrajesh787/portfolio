@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, CheckCircle, AlertCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+
+const FORM_ENDPOINT = "https://formspree.io/f/mvzweqvq";
+
+const inputClass =
+  "w-full px-4 py-3 rounded-xl border border-line-strong bg-band text-ink placeholder:text-faint focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-60";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -13,54 +18,43 @@ export function ContactForm() {
     setErrorMessage("");
 
     const form = e.currentTarget;
-    const formData = new FormData(form);
 
     try {
-      // Replace this URL with your actual Formspree endpoint
-      // Example: https://formspree.io/f/your_form_id
-      const response = await fetch("https://formspree.io/f/mvzweqvq", {
+      const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
       });
 
       if (response.ok) {
         setStatus("success");
         form.reset();
-      } else {
-        const data = await response.json();
-        if (Object.hasOwn(data, "errors")) {
-          setErrorMessage(data.errors.map((err: any) => err.message).join(", "));
-        } else {
-          setErrorMessage("Oops! There was a problem submitting your form");
-        }
-        setStatus("error");
+        return;
       }
-    } catch (error) {
-      setErrorMessage("Oops! There was a problem submitting your form");
+      const data: { errors?: { message: string }[] } = await response.json();
+      setErrorMessage(data.errors?.map((err) => err.message).join(", ") || "Oops! There was a problem submitting your form.");
+      setStatus("error");
+    } catch {
+      setErrorMessage("Oops! There was a problem submitting your form.");
       setStatus("error");
     }
   };
 
+  const submitting = status === "submitting";
+
   return (
-    <form onSubmit={handleSubmit} className="bg-slate-50 border border-slate-200/60 rounded-3xl p-8 shadow-sm h-full flex flex-col relative overflow-hidden">
-      <h2 className="text-2xl font-bold text-slate-900 mb-6">Send a Message</h2>
-      
+    <form onSubmit={handleSubmit} className="h-full flex flex-col rounded-3xl bg-surface border border-line-strong p-7">
+      <h2 className="text-xl font-bold mb-6">Send a message</h2>
+
       {status === "success" ? (
-        <div className="flex-grow flex flex-col items-center justify-center text-center space-y-4 py-8">
-          <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-2">
-            <CheckCircle className="w-8 h-8" />
-          </div>
-          <h3 className="text-xl font-bold text-slate-900">Message Sent!</h3>
-          <p className="text-slate-500">
-            Thanks for reaching out. I'll get back to you as soon as possible.
-          </p>
+        <div className="flex-grow flex flex-col items-center justify-center text-center gap-3 py-8" role="status">
+          <CheckCircle className="w-10 h-10 text-accent" />
+          <h3 className="text-lg font-bold">Message sent</h3>
+          <p className="text-muted">Thanks for reaching out. I&apos;ll get back to you as soon as possible.</p>
           <button
             type="button"
             onClick={() => setStatus("idle")}
-            className="mt-4 px-6 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition-colors"
+            className="mt-3 px-5 py-2 rounded-xl border border-line-strong text-sm font-medium hover:border-ink transition-colors"
           >
             Send another message
           </button>
@@ -68,79 +62,52 @@ export function ContactForm() {
       ) : (
         <>
           <div className="space-y-4 flex-grow">
-            <div>
-              <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-1.5 ml-1">
-                Name <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all placeholder:text-slate-400"
-                placeholder="John Doe"
-                disabled={status === "submitting"}
-                aria-required="true"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-bold text-slate-700 mb-1.5 ml-1">
-                Email <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all placeholder:text-slate-400"
-                placeholder="john@example.com"
-                disabled={status === "submitting"}
-                aria-required="true"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-bold text-slate-700 mb-1.5 ml-1">
-                Message <span className="text-red-500">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows={4}
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all resize-none placeholder:text-slate-400"
-                placeholder="Hey Naresh, I'd love to chat about..."
-                disabled={status === "submitting"}
-                aria-required="true"
-              ></textarea>
-            </div>
+            <Field id="name" label="Name">
+              <input type="text" id="name" name="name" required autoComplete="name" className={inputClass} placeholder="Jane Doe" disabled={submitting} />
+            </Field>
+            <Field id="email" label="Email">
+              <input type="email" id="email" name="email" required autoComplete="email" className={inputClass} placeholder="jane@company.com" disabled={submitting} />
+            </Field>
+            <Field id="message" label="Message">
+              <textarea id="message" name="message" required rows={5} className={`${inputClass} resize-none`} placeholder="Hey Naresh, I'd love to chat about..." disabled={submitting} />
+            </Field>
           </div>
 
           {status === "error" && (
-            <div className="mt-4 p-4 bg-red-50 text-red-700 rounded-xl flex items-start text-sm border border-red-100" role="alert">
-              <AlertCircle className="w-5 h-5 mr-2 flex-shrink-0 mt-0.5" />
+            <div className="mt-4 p-3.5 rounded-xl flex items-start gap-2 text-sm text-red-300 bg-red-500/10 border border-red-500/30" role="alert">
+              <AlertCircle className="w-5 h-5 flex-shrink-0" />
               <p>{errorMessage}</p>
             </div>
           )}
 
           <button
             type="submit"
-            disabled={status === "submitting"}
-            className="mt-6 w-full py-4 rounded-xl bg-slate-900 text-white font-bold hover:bg-brand-600 transition-colors flex justify-center items-center group shadow-md hover:shadow-lg hover:-translate-y-0.5 duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+            disabled={submitting}
+            className="mt-6 w-full h-12 rounded-xl bg-accent text-on-accent font-semibold flex justify-center items-center hover:brightness-110 transition disabled:opacity-70 disabled:cursor-not-allowed group"
           >
-            {status === "submitting" ? (
-              <span className="flex items-center">
-                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Sending...
-              </span>
+            {submitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending...
+              </>
             ) : (
-              <>Send Message <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" /></>
+              <>
+                Send message <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </>
             )}
           </button>
         </>
       )}
     </form>
+  );
+}
+
+function Field({ id, label, children }: { id: string; label: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <label htmlFor={id} className="block text-sm font-medium text-muted mb-1.5">
+        {label} <span className="text-accent" aria-hidden>*</span>
+      </label>
+      {children}
+    </div>
   );
 }

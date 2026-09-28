@@ -1,8 +1,10 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Case Studies | Naresh Rajesh",
-  description: "Explore my projects in AI, Machine Learning, and robust technical implementations.",
+  title: "Projects",
+  description:
+    "Projects by Naresh Rajesh: SpeechScore, an AI speech coaching platform, plus Clarity, PeerPoint, and EcoSearch. Full-stack apps and multimodal AI pipelines.",
+  alternates: { canonical: "/projects" },
 };
 
 export default function ProjectsLayout({ children }: { children: React.ReactNode }) {

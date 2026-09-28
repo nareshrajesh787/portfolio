@@ -1,35 +1,50 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Analytics } from "@/components/Analytics";
+import { site } from "@/lib/content";
 
-const font = Plus_Jakarta_Sans({ subsets: ["latin"] });
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nareshrajesh.vercel.app"), 
+  metadataBase: new URL(site.url),
   title: {
-    default: "Naresh Rajesh | Portfolio",
-    template: "%s | Naresh Rajesh",
+    default: `${site.name} | ${site.role}`,
+    template: `%s | ${site.name}`,
   },
-  description: "Applied AI Engineer & Business Strategist bridging the gap between autonomous AI research and actionable enterprise strategy.",
+  description: site.description,
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Naresh Rajesh | Portfolio",
-    description: "Applied AI Engineer & Business Strategist.",
-    url: "https://nareshrajesh.com",
-    siteName: "Naresh Rajesh Portfolio",
+    title: `${site.name} | ${site.role}`,
+    description: site.description,
+    url: site.url,
+    siteName: site.name,
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Naresh Rajesh | Portfolio",
-    description: "Applied AI Engineer & Business Strategist.",
+    title: `${site.name} | ${site.role}`,
+    description: site.description,
   },
   verification: {
     google: "mozfxnTRkHata4s0t7zHjmFFUiyaebitFl0G5r6u7Sg",
   },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  url: site.url,
+  jobTitle: site.role,
+  email: `mailto:${site.email}`,
+  address: { "@type": "PostalAddress", addressLocality: "Atlanta", addressRegion: "GA", addressCountry: "US" },
+  worksFor: { "@type": "Organization", name: "iVue" },
+  sameAs: [site.github, site.linkedin],
 };
 
 export default function RootLayout({
@@ -38,14 +53,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${font.className} flex flex-col min-h-screen bg-background text-foreground antialiased selection:bg-brand-500/30 selection:text-brand-900`}>
-        <Analytics />
+    <html lang="en" className={`${geist.variable} ${geistMono.variable} scroll-smooth`}>
+      <body className="font-sans flex flex-col min-h-screen bg-bg text-ink antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-on-accent focus:font-semibold"
+        >
+          Skip to content
+        </a>
         <Navbar />
-        <main className="flex-grow flex flex-col pt-24 md:pt-32">
+        <main id="main" className="flex-grow flex flex-col">
           {children}
         </main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

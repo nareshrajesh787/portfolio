@@ -1,13 +1,9 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
+import { site } from "@/lib/content";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://nareshrajesh.vercel.app';
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: '/awards',
-    },
-    sitemap: `${baseUrl}/sitemap.xml`,
+    rules: { userAgent: "*", allow: "/" },
+    sitemap: `${site.url}/sitemap.xml`,
   };
 }

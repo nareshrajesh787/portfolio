@@ -1,234 +1,142 @@
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Github, Linkedin, ExternalLink, Sparkles, Network, TerminalSquare } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/ui/fade-in";
+import { BrowserFrame, PhoneFrame } from "@/components/ui/frames";
+import { Section } from "@/components/ui/section";
+import { NowLine, NowPanel, NowProvider } from "@/components/home/Now";
+import { homeProjects, now, proof, site, type Project } from "@/lib/content";
 
 export default function Home() {
+  const [main, side] = homeProjects;
+
   return (
-    <div className="flex flex-col items-center w-full">
-      {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center min-h-[90vh] px-4 pt-32 pb-20 w-full overflow-hidden">
-        {/* Background base pattern */}
-        <div className="absolute inset-0 bg-dot-pattern opacity-50 z-[-1]" />
-        
-        {/* Glowing orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none z-[-1]" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl pointer-events-none z-[-1]" />
-
-        <div className="max-w-4xl mx-auto w-full flex flex-col items-center text-center z-10 relative">
-          <FadeIn delay={0.1} direction="down">
-            <div className="mb-6 w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-full border-[6px] border-white shadow-2xl overflow-hidden bg-slate-100 relative mx-auto flex items-center justify-center group">
-              <Image src="/IMG_3252.jpeg" alt="Naresh Rajesh" fill sizes="(max-width: 768px) 150px, 250px" priority className="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
-            </div>
-            
-            <Badge variant="outline" className="mb-8 px-4 py-1.5 text-sm font-medium border-slate-200 shadow-[0_2px_10px_rgba(0,0,0,0.04)] bg-white/50 backdrop-blur-sm rounded-full text-slate-600">
-              <span className="flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
-                </span>
-                Open to Fall & Summer Internships
-              </span>
-            </Badge>
-          </FadeIn>
-
-          <FadeIn delay={0.2}>
-            <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold text-slate-900 tracking-tighter mb-6 leading-[1.1]">
-              Engineer AI systems. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-accent-500">
-                Drive business strategy.
-              </span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed tracking-wide font-medium">
-              I'm <span className="text-slate-900 font-semibold">Naresh Rajesh</span>, building agentic AI workflows and leveraging quantitative research to shape high-stakes decisions. 
-              Recognized as a Wharton Global Finalist, FBLA National Winner, and Digital Technology SOTY.
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={0.4} direction="up" className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-            <Button asChild size="lg" className="h-14 px-8 text-base rounded-2xl w-full sm:w-auto shadow-xl shadow-brand-500/20 bg-brand-600 hover:bg-brand-700 text-white transition-all hover:scale-[1.02] hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2">
-              <Link href="/projects">
-                Explore My Work <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="h-14 px-8 text-base rounded-2xl w-full sm:w-auto bg-white/50 backdrop-blur-sm border-slate-200 hover:bg-slate-50 text-slate-700 transition-all focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2">
-              <Link href="/about">
-                Read My Story
-              </Link>
-            </Button>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Operating Principles Strip */}
-      <section className="w-full bg-white py-20 border-y border-slate-100 relative z-20 shadow-sm">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn delay={0.1}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              <div className="flex flex-col items-center text-center md:items-start md:text-left">
-                <div className="h-12 w-12 rounded-2xl bg-brand-50 border border-brand-100 flex items-center justify-center mb-6 text-brand-600 shadow-sm">
-                  <TerminalSquare className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Agentic AI & LLMs</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">Building autonomous workflows and intelligent applications using tools like OpenAI, Gemini, and Python to solve complex, real-world problems.</p>
-              </div>
-              <div className="flex flex-col items-center text-center md:items-start md:text-left">
-                <div className="h-12 w-12 rounded-2xl bg-warm-50 border border-warm-100 flex items-center justify-center mb-6 text-warm-600 shadow-sm">
-                  <Sparkles className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Full-Stack Engineering</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">Architecting fast, scalable platforms with React, Next.js, Django, and modern cloud infrastructure to deliver seamless user experiences.</p>
-              </div>
-              <div className="flex flex-col items-center text-center md:items-start md:text-left">
-                <div className="h-12 w-12 rounded-2xl bg-accent-50 border border-accent-100 flex items-center justify-center mb-6 text-accent-600 shadow-sm">
-                  <Network className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Quantitative Strategy</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">Applying data research, statistical analysis, and financial modeling to craft strategies that drive high-stakes business decisions.</p>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Featured Work - Bento Grid */}
-      <section className="w-full bg-slate-50 py-32">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn delay={0.1}>
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-              <div className="max-w-2xl">
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Selected Projects</h2>
-                <p className="text-slate-500 text-lg leading-relaxed">
-                  A look under the hood at the AI systems I've engineered and the quantitative research I've led.
+    <div className="w-full">
+      {/* Hero */}
+      <section className="relative">
+        <div className="absolute inset-0 bg-grid pointer-events-none" aria-hidden />
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-28 md:pt-36">
+          <NowProvider items={now}>
+            <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-10 lg:gap-20 items-center pb-14">
+              <div>
+                <p className="font-mono text-xs uppercase tracking-[0.1em] text-accent mb-6">
+                  {site.role} · {site.location}
                 </p>
+                <h1 className="text-[2.75rem] leading-[1.02] sm:text-6xl lg:text-[4rem] xl:text-[4.5rem] font-bold tracking-[-0.045em]">
+                  I engineer AI products <span className="text-accent">people actually use.</span>
+                </h1>
+                <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mt-7">
+                  I&apos;m {site.name}, interning at iVue on drone-platform software. I build full-stack apps and
+                  multimodal AI pipelines with React, FastAPI, and AWS.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 mt-9">
+                  <Link
+                    href="/projects"
+                    className="inline-flex items-center justify-center h-12 px-6 rounded-xl bg-accent text-on-accent font-semibold hover:brightness-110 transition group"
+                  >
+                    Explore my work <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                  </Link>
+                  <a
+                    href={site.resume}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center h-12 px-6 rounded-xl border border-line-strong text-ink font-semibold hover:border-ink transition-colors"
+                  >
+                    View resume <ArrowUpRight className="ml-2 h-4 w-4" />
+                  </a>
+                </div>
               </div>
-              <Button asChild variant="ghost" className="hidden md:flex items-center text-slate-600 hover:text-slate-900 hover:bg-slate-200/50 rounded-xl px-4 py-2 transition-all">
-                <Link href="/projects">
-                  View all projects <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+              <NowPanel src="/innovateatl-speaking.jpg" alt="Naresh Rajesh speaking at InnovateATL" />
             </div>
-          </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[400px]">
-            {/* Main Featured Case Study - Span 2 cols */}
-            <FadeIn delay={0.2} className="md:col-span-2 h-full">
-              <Link href="/projects" className="block h-full group focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-3xl">
-                <Card className="h-full flex flex-col md:flex-row overflow-hidden bg-white border-none shadow-sm hover:shadow-xl transition-all duration-500 rounded-3xl relative group p-0">
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-50/80 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <div className="flex flex-col flex-1 p-8 md:p-10 relative z-10">
-                    <div className="flex justify-between items-start mb-6">
-                      <div className="flex gap-2">
-                        <Badge variant="secondary" className="bg-brand-100 text-brand-800 hover:bg-brand-100 border-none rounded-full px-3 py-1 font-semibold tracking-wide">AI Integration</Badge>
-                        <Badge variant="secondary" className="bg-slate-100 text-slate-800 hover:bg-slate-100 border-none rounded-full px-3 py-1 font-semibold tracking-wide">Web App</Badge>
-                      </div>
-                      <ExternalLink className="h-5 w-5 text-slate-400 group-hover:text-brand-600 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" />
-                    </div>
-                    
-                    <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4 group-hover:text-brand-700 transition-colors">SpeechScore</h3>
-                    <p className="text-slate-500 text-base md:text-lg leading-relaxed max-w-md mb-8">
-                      A full-stack application architected to analyze public speaking using real-time ML processing. Providing actionable, data-driven communication coaching to end-users.
-                    </p>
-                    
-                    <div className="mt-auto text-brand-600 font-bold flex items-center transform group-hover:translate-x-2 transition-transform text-lg">
-                      Read Project <ArrowRight className="ml-2 h-5 w-5" />
-                    </div>
-                  </div>
-                  
-                  <div className="relative md:w-5/12 flex-shrink-0 bg-slate-50/80 overflow-hidden border-l border-slate-100/50 flex items-center justify-center p-6 lg:p-10">
-                    <div className="w-full relative rounded-xl bg-white border border-slate-200/80 shadow-lg overflow-hidden group-hover:scale-105 group-hover:-translate-y-1 group-hover:shadow-xl transition-all duration-500 flex flex-col">
-                      <div className="h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
-                        <div className="w-2 h-2 rounded-full bg-slate-300"></div>
-                        <div className="w-2 h-2 rounded-full bg-slate-300"></div>
-                        <div className="w-2 h-2 rounded-full bg-slate-300"></div>
-                      </div>
-                      <div className="relative w-full aspect-[16/10] bg-slate-50">
-                        <Image src="/speechscore.png" alt="SpeechScore Display" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-top" />
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </Link>
-            </FadeIn>
-
-            {/* Technical Case Study - Span 1 col */}
-            <FadeIn delay={0.3} className="md:col-span-1 h-full">
-              <Link href="/projects" className="block h-full group focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-3xl">
-                <Card className="h-full flex flex-col overflow-hidden bg-white border border-slate-200/60 shadow-sm hover:shadow-xl transition-all duration-500 rounded-3xl relative group p-0">
-                  <div className="p-8 pb-6 relative z-10 flex-shrink-0">
-                    <div className="flex justify-between items-start mb-6">
-                      <Badge variant="secondary" className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100 border-none rounded-full px-3 py-1 font-semibold tracking-wide">Full-Stack</Badge>
-                      <ExternalLink className="h-5 w-5 text-slate-400 group-hover:text-emerald-600 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-slate-900 leading-tight mb-3 group-hover:text-emerald-700 transition-colors">PeerPoint</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">
-                      A Django-based academic platform using OpenAI to programmatically generate structured peer review feedback.
-                    </p>
-                  </div>
-                  
-                  <div className="relative flex-grow bg-slate-50/80 mt-2 border-t border-slate-100/50 flex flex-col justify-end px-6 pt-6 overflow-hidden rounded-b-3xl">
-                    <div className="w-full relative rounded-t-xl bg-white border border-slate-200/80 shadow border-b-0 overflow-hidden group-hover:-translate-y-2 transition-all duration-500 flex flex-col translate-y-3">
-                      <div className="h-5 bg-slate-100 border-b border-slate-200 flex items-center px-2.5 gap-1.5">
-                        <div className="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
-                        <div className="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
-                        <div className="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
-                      </div>
-                      <div className="relative w-full aspect-[16/10] bg-slate-50">
-                        <Image src="/Peerpoint.png" alt="PeerPoint Interface" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-top" />
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </Link>
-            </FadeIn>
-          </div>
-
-          <FadeIn delay={0.4} className="mt-8 flex md:hidden justify-center">
-            <Button asChild variant="outline" className="w-full rounded-xl h-14 bg-white shadow-sm font-medium text-slate-700">
-              <Link href="/projects">Explore All Projects</Link>
-            </Button>
-          </FadeIn>
+            {/* Now + recognition share one row on wide screens */}
+            <div className="flex flex-col xl:flex-row xl:items-center gap-4 xl:gap-10 py-6 border-t border-line">
+              <div className="flex-1 min-w-0">
+                <NowLine />
+              </div>
+              <ul className="flex flex-col sm:flex-row sm:flex-wrap gap-x-5 gap-y-1 text-sm text-muted" aria-label="Recognition">
+                {proof.map((p) => (
+                  <li key={p.strong}>
+                    <span className="text-ink font-medium">{p.strong}</span> {p.rest}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </NowProvider>
         </div>
       </section>
 
-      {/* Let's Connect Section */}
-      <section className="w-full relative py-32 md:py-40 overflow-hidden bg-brand-600">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-700 via-brand-600 to-accent-600 z-0"></div>
-        
-        {/* Abstract glowing shapes */}
-        <div className="absolute top-[-50%] right-[-10%] w-[80%] h-[150%] bg-white/10 blur-[120px] rounded-full mix-blend-overlay pointer-events-none z-0" />
-        <div className="absolute bottom-[-50%] left-[-10%] w-[60%] h-[120%] bg-accent-300/20 blur-[100px] rounded-full mix-blend-screen pointer-events-none z-0" />
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <Section
+        id="selected-projects"
+        title="Selected projects"
+        aside={
+          <>
+            <p>Two recent builds: an AI speech coach and a multimodal mental-health app.</p>
+            <Link href="/projects" className="inline-block mt-4 text-ink font-medium hover:text-accent transition-colors">
+              All projects →
+            </Link>
+          </>
+        }
+      >
+        <div className="space-y-6">
+          <FadeIn>
+            <ProjectRow project={main}>
+              <BrowserFrame src={main.imageUrl} alt={`${main.title} screenshot`} sizes="(max-width: 1024px) 100vw, 560px" className="w-full" />
+            </ProjectRow>
+          </FadeIn>
           <FadeIn delay={0.1}>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight text-white drop-shadow-md">Let's Connect.</h2>
-            <p className="text-xl md:text-2xl text-brand-50 mb-12 leading-relaxed font-medium drop-shadow-sm max-w-2xl mx-auto">
-              Currently seeking local internships in software engineering and data analysis.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <a 
-                href="mailto:nareshrajesh787@gmail.com" 
-                className="inline-flex items-center justify-center h-14 px-8 text-base font-bold rounded-2xl text-brand-900 bg-white hover:bg-slate-50 transition-all hover:scale-[1.02] shadow-[0_8px_30px_rgb(0,0,0,0.15)] focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-600 focus:outline-none group/btn w-full sm:w-auto"
-              >
-                Get in Touch <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform" />
-              </a>
-              <a 
-                href="/Naresh_Rajesh_Resume.pdf" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center h-14 px-8 text-base font-bold rounded-2xl text-white bg-white/10 border border-white/20 hover:bg-white/20 backdrop-blur-md transition-all hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-600 focus:outline-none w-full sm:w-auto"
-              >
-                View Resume
-              </a>
-            </div>
+            <ProjectRow project={side}>
+              <PhoneFrame src={side.imageUrl} alt={`${side.title} app screenshot`} sizes="200px" className="w-[160px] lg:w-[180px]" />
+            </ProjectRow>
           </FadeIn>
         </div>
-      </section>
+      </Section>
+
+      <Section id="contact" title="Contact" aside={<p>Open to internships, collaborations, and interesting problems.</p>}>
+        <p className="text-muted text-lg">The fastest way to reach me is email.</p>
+        <a
+          href={`mailto:${site.email}`}
+          className="inline-block mt-3 text-2xl sm:text-3xl md:text-4xl font-bold tracking-[-0.03em] break-all sm:break-normal underline decoration-accent decoration-2 underline-offset-[8px] hover:text-accent transition-colors"
+        >
+          {site.email}
+        </a>
+        <div className="flex flex-wrap gap-x-8 gap-y-2 mt-8 text-muted">
+          <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-ink transition-colors">
+            LinkedIn ↗
+          </a>
+          <a href={site.github} target="_blank" rel="noopener noreferrer" className="hover:text-ink transition-colors">
+            GitHub ↗
+          </a>
+          <a href={site.resume} target="_blank" rel="noopener noreferrer" className="hover:text-ink transition-colors">
+            Resume ↗
+          </a>
+        </div>
+      </Section>
     </div>
+  );
+}
+
+/** A project as a wide row: description on the left, screenshot on the right. */
+function ProjectRow({ project, children }: { project: Project; children: React.ReactNode }) {
+  const stack = project.tags.filter((t) => t !== "Solo Developer").join(" · ");
+  return (
+    <Link
+      href="/projects"
+      className="edge-glow relative grid grid-cols-1 md:grid-cols-[1fr_1.25fr] rounded-3xl bg-surface border border-line-strong hover:border-accent transition-colors overflow-hidden group"
+    >
+      <div className="p-7 md:p-9 flex flex-col">
+        <div className="flex items-baseline justify-between gap-4">
+          <h3 className="text-2xl md:text-3xl font-bold tracking-[-0.035em] group-hover:text-accent transition-colors">{project.title}</h3>
+          <span className="text-sm text-faint whitespace-nowrap">{project.date}</span>
+        </div>
+        <p className="text-muted text-base md:text-[17px] leading-relaxed mt-3">{project.description}</p>
+        <p className="text-sm text-faint mt-4">{stack}</p>
+        <span className="mt-8 md:mt-auto pt-2 inline-flex items-center text-sm font-semibold text-ink group-hover:text-accent transition-colors">
+          Read the case study <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+        </span>
+      </div>
+      <div className="bg-band border-t md:border-t-0 md:border-l border-line flex items-center justify-center p-6 md:p-8">
+        {children}
+      </div>
+    </Link>
   );
 }
