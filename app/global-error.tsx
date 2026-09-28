@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import { AlertOctagon, RotateCcw } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { RotateCcw } from "lucide-react";
+import "./globals.css";
 
 export default function GlobalError({
   error,
@@ -12,28 +12,22 @@ export default function GlobalError({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
     console.error(error);
   }, [error]);
 
   return (
-    <html>
-      <body>
-        <div className="flex flex-col items-center justify-center min-h-screen px-4 w-full bg-slate-50">
-          <div className="w-20 h-20 bg-red-50 rounded-2xl flex items-center justify-center text-red-500 mb-8 border border-red-100 shadow-sm">
-            <AlertOctagon className="w-10 h-10" />
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4 text-center">Something went wrong!</h2>
-          <p className="text-lg text-slate-500 mb-10 text-center max-w-md">
-            A critical application error occurred. We've been notified.
-          </p>
-          <Button 
+    <html lang="en">
+      <body className="bg-bg text-ink font-sans">
+        <div className="flex flex-col items-center justify-center min-h-screen px-4 text-center">
+          <p className="font-mono text-sm text-accent mb-4">Error</p>
+          <h1 className="text-3xl md:text-4xl font-bold tracking-[-0.03em] mb-4">Something went wrong</h1>
+          <p className="text-lg text-muted mb-10 max-w-md">An unexpected error occurred. Please try again.</p>
+          <button
             onClick={() => reset()}
-            size="lg" 
-            className="rounded-2xl h-14 px-8 bg-slate-900 hover:bg-slate-800 text-white transition-all shadow-md focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
+            className="inline-flex items-center h-12 px-6 rounded-xl bg-accent text-on-accent font-semibold hover:brightness-110 transition"
           >
             Try again <RotateCcw className="ml-2 h-4 w-4" />
-          </Button>
+          </button>
         </div>
       </body>
     </html>

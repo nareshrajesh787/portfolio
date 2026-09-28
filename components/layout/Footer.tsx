@@ -1,50 +1,57 @@
-import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { navLinks, site } from "@/lib/content";
+
+const external = [
+  { href: `mailto:${site.email}`, label: "Email" },
+  { href: site.github, label: "GitHub" },
+  { href: site.linkedin, label: "LinkedIn" },
+  { href: site.resume, label: "Resume" },
+];
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-white border-t border-slate-200/60 pt-16 pb-8 mt-auto z-10 relative">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-          <div className="md:col-span-1">
-            <Link href="/" className="font-bold text-slate-900 tracking-tight text-xl mb-4 block focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-md">
-              Naresh<span className="text-slate-400">Rajesh</span>
+    <footer className="border-t border-line bg-band mt-auto">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-14 pb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+          <div className="col-span-2">
+            <Link href="/" className="font-bold tracking-tight text-lg">
+              Naresh<span className="text-accent">.</span>
             </Link>
-            <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
-              AI Engineer & Business Strategist building data-driven AI systems and driving growth.
+            <p className="text-muted text-sm leading-relaxed max-w-xs mt-3">
+              Software engineer in {site.location}, building full-stack products and multimodal AI pipelines.
             </p>
           </div>
-          
-          <div className="flex flex-col space-y-3">
-            <h4 className="font-bold text-slate-900 text-xs tracking-wider uppercase mb-2">Navigation</h4>
-            <Link href="/" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">Home</Link>
-            <Link href="/projects" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">Projects</Link>
-            <Link href="/about" className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">About</Link>
+
+          <div className="flex flex-col gap-2.5">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-faint mb-1">Pages</h2>
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="text-muted hover:text-ink text-sm w-fit transition-colors">
+                {link.label}
+              </Link>
+            ))}
           </div>
 
-          <div className="flex flex-col space-y-3">
-            <h4 className="font-bold text-slate-900 text-xs tracking-wider uppercase mb-2">Connect</h4>
-            <a href="mailto:nareshrajesh787@gmail.com" aria-label="Email Naresh Rajesh" className="group flex items-center text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">
-              Email <ArrowUpRight className="ml-1 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
-            <a href="https://github.com/nareshrajesh787" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" className="group flex items-center text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">
-              GitHub <ArrowUpRight className="ml-1 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
-            <a href="https://www.linkedin.com/in/naresh-rajesh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="group flex items-center text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors w-fit focus-visible:ring-2 focus-visible:ring-brand-500 focus:outline-none rounded-sm">
-              LinkedIn <ArrowUpRight className="ml-1 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
+          <div className="flex flex-col gap-2.5">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-faint mb-1">Connect</h2>
+            {external.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+                rel="noopener noreferrer"
+                className="group flex items-center text-muted hover:text-ink text-sm w-fit transition-colors"
+              >
+                {link.label}
+                <ArrowUpRight className="ml-1 h-3 w-3 opacity-50 group-hover:opacity-100 group-hover:text-accent transition" />
+              </a>
+            ))}
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-400 text-sm">
-            &copy; {currentYear} Naresh Rajesh. All rights reserved.
-          </p>
-          <div className="flex items-center space-x-1 text-slate-400 text-xs tracking-wide">
-            <span>BUILT WITH NEXT.JS</span>
-          </div>
+        <div className="pt-6 border-t border-line flex flex-col sm:flex-row justify-between gap-2 text-faint text-xs">
+          <p>&copy; {new Date().getFullYear()} {site.name}</p>
+          <p className="font-mono">Built with Next.js</p>
         </div>
       </div>
     </footer>

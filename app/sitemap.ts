@@ -1,11 +1,12 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
+import { site } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://nareshrajesh.vercel.app';
+  const lastModified = new Date();
   return [
-    { url: `${baseUrl}`, lastModified: new Date(), changeFrequency: 'monthly', priority: 1 },
-    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/projects`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.5 },
+    { url: site.url, lastModified, changeFrequency: "monthly", priority: 1 },
+    { url: `${site.url}/projects`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${site.url}/about`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${site.url}/contact`, lastModified, changeFrequency: "yearly", priority: 0.5 },
   ];
 }
