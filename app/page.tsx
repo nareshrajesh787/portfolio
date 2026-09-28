@@ -21,7 +21,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto w-full flex flex-col items-center text-center z-10 relative">
           <FadeIn delay={0.1} direction="down">
             <div className="mb-6 w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-full border-[6px] border-white shadow-2xl overflow-hidden bg-slate-100 relative mx-auto flex items-center justify-center group">
-              <Image src="/IMG_3252.jpeg" alt="Naresh Rajesh" fill sizes="(max-width: 768px) 150px, 250px" priority className="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+              <Image src="/headshot.jpg" alt="Naresh Rajesh" fill sizes="(max-width: 768px) 150px, 250px" priority className="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
             </div>
             
             <Badge variant="outline" className="mb-8 px-4 py-1.5 text-sm font-medium border-slate-200 shadow-[0_2px_10px_rgba(0,0,0,0.04)] bg-white/50 backdrop-blur-sm rounded-full text-slate-600">
