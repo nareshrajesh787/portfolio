@@ -50,7 +50,7 @@ export function Navbar() {
             href={site.resume}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-1 px-4 py-2 rounded-full bg-ink text-bg hover:bg-accent text-sm font-semibold transition-colors"
+            className="ml-1 px-4 py-2 rounded-lg bg-ink text-bg hover:bg-accent text-sm font-semibold transition-colors"
           >
             Resume
           </a>

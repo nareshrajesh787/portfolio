@@ -67,7 +67,7 @@ export default function ProjectsPage() {
                       open ? "border-accent" : "border-line-strong hover:border-accent/60"
                     }`}
                   >
-                    <span className="font-mono text-xs text-faint mb-5">{project.date}</span>
+                    <span className="text-sm text-faint mb-4">{project.date}</span>
                     <h3 className={`text-2xl font-bold tracking-[-0.03em] mb-3 transition-colors ${open ? "text-accent" : "group-hover:text-accent"}`}>
                       {project.title}
                     </h3>
@@ -142,23 +142,11 @@ function SectionLabel({ id, title, note }: { id: string; title: string; note?: s
 }
 
 function DateChip({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex w-fit font-mono text-xs text-accent border border-accent/30 bg-accent-soft rounded-md px-2.5 py-1 mb-5">
-      {children}
-    </span>
-  );
+  return <span className="block text-sm text-faint mb-2">{children}</span>;
 }
 
 function Tags({ tags }: { tags: string[] }) {
-  return (
-    <ul className="flex flex-wrap gap-1.5" aria-label="Tech stack">
-      {tags.map((tag) => (
-        <li key={tag} className="font-mono text-[11.5px] text-muted border border-line-strong px-2 py-1 rounded-md">
-          {tag}
-        </li>
-      ))}
-    </ul>
-  );
+  return <span className="block text-sm text-faint">{tags.join(" · ")}</span>;
 }
 
 function Detail({ label, emphasis, children }: { label: string; emphasis?: boolean; children: React.ReactNode }) {
