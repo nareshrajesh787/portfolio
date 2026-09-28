@@ -17,32 +17,20 @@ function useNow() {
 
 /**
  * Rotates through the current activities. The hero panel caption and the "Now" line
- * both read from this so they stay in sync. Pauses while hovered or focused, and
- * stays on the first item for visitors who prefer reduced motion.
+ * both read from this so they stay in sync. The rotation never pauses; for visitors
+ * who prefer reduced motion, globals.css turns the slide into an instant swap.
  */
 export function NowProvider({ items, children }: { items: NowItem[]; children: React.ReactNode }) {
   const [{ index, prev }, setPosition] = useState<{ index: number; prev: number | null }>({ index: 0, prev: null });
-  const [paused, setPaused] = useState(false);
-
   useEffect(() => {
-    if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = window.setInterval(() => {
       setPosition(({ index: i }) => ({ index: (i + 1) % items.length, prev: i }));
     }, INTERVAL_MS);
     return () => window.clearInterval(id);
-  }, [paused, items.length]);
+  }, [items.length]);
 
   return (
-    <NowContext.Provider value={{ items, index, prev }}>
-      <div
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-        onFocus={() => setPaused(true)}
-        onBlur={() => setPaused(false)}
-      >
-        {children}
-      </div>
-    </NowContext.Provider>
+    <NowContext.Provider value={{ items, index, prev }}>{children}</NowContext.Provider>
   );
 }
 
