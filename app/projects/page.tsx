@@ -23,7 +23,7 @@ export default function ProjectsPage() {
         lede="Deep dives into my AI builds and full-stack applications. Focused on the intersection of complex data and human-centric design."
       />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-24">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 space-y-24">
         {/* Featured Project */}
         <section aria-labelledby="featured">
           <SectionLabel id="featured" title="Featured Build" note="Deep dive" />

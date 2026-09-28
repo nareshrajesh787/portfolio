@@ -62,7 +62,6 @@ export const honors = [
 export const education = {
   school: "West Forsyth High School",
   graduation: "Expected May 2027",
-  gpa: "4.623 / 5.0 weighted",
   rank: "1 / 655",
   dualEnrollment: [
     { school: "Georgia Tech", courses: ["CS 1301", "MATH 1554", "MATH 2551"] },

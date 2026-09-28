@@ -63,7 +63,7 @@ function OrgLink({ item }: { item: NowItem }) {
 export function NowLine() {
   const { items, index, prev } = useNow();
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto] gap-2 md:gap-6 items-center py-5 border-t border-line">
+    <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto] gap-2 md:gap-6 items-center min-w-0">
       <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
         <span className="h-[7px] w-[7px] rounded-full bg-accent motion-safe:animate-pulse" aria-hidden />
         Now

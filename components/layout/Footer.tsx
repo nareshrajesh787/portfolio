@@ -12,7 +12,7 @@ const external = [
 export function Footer() {
   return (
     <footer className="border-t border-line bg-band mt-auto">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-14 pb-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-14 pb-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           <div className="col-span-2">
             <Link href="/" className="font-bold tracking-tight text-lg">

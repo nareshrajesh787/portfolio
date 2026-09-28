@@ -27,7 +27,7 @@ export function Navbar() {
         scrolled || isOpen ? "bg-bg/80 backdrop-blur-xl border-b border-line" : "border-b border-transparent"
       }`}
     >
-      <nav aria-label="Main" className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex justify-between items-center">
+      <nav aria-label="Main" className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 h-16 flex justify-between items-center">
         <Link href="/" className="font-bold tracking-tight text-lg">
           Naresh<span className="text-accent">.</span>
         </Link>

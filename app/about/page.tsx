@@ -24,10 +24,11 @@ export default function AboutPage() {
         }
       />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-12 gap-14">
-        <div className="md:col-span-8 space-y-16">
-          <FadeIn>
-            <div className="space-y-5 text-[1.075rem] text-muted leading-relaxed">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 space-y-20 md:space-y-24">
+        {/* Story + photo */}
+        <FadeIn>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div className="lg:col-span-6 space-y-5 text-lg text-muted leading-relaxed">
               <p>
                 I&apos;m a software engineer and a student at West Forsyth High School, taking Georgia Tech computer
                 science and math courses through dual enrollment. Right now I&apos;m a software engineering intern at{" "}
@@ -39,20 +40,31 @@ export default function AboutPage() {
                 and free AI tools for local nonprofits. Outside of code, I co-founded a statewide startup competition and
                 lead one of Georgia&apos;s largest FBLA chapters.
               </p>
+              <a
+                href={site.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center h-12 px-6 mt-3 rounded-xl bg-accent text-on-accent font-semibold hover:brightness-110 transition"
+              >
+                View full resume <ArrowUpRight className="ml-2 h-4 w-4" />
+              </a>
             </div>
-            <figure className="mt-10 rounded-2xl overflow-hidden border border-line">
+            <figure className="lg:col-span-6 rounded-2xl overflow-hidden border border-line-strong">
               <div className="relative aspect-[3/2]">
                 <Image
                   src="/innovateatl-demo.webp"
                   alt="Naresh Rajesh demoing a project with teammates at InnovateATL"
                   fill
-                  sizes="(max-width: 768px) 100vw, 640px"
+                  sizes="(max-width: 1024px) 100vw, 600px"
                   className="object-cover object-[center_25%]"
                 />
               </div>
             </figure>
-          </FadeIn>
+          </div>
+        </FadeIn>
 
+        {/* Highlights + honors side by side */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16">
           <FadeIn>
             <section aria-labelledby="highlights">
               <SectionTitle id="highlights">Highlights</SectionTitle>
@@ -84,7 +96,7 @@ export default function AboutPage() {
             </section>
           </FadeIn>
 
-          <FadeIn>
+          <FadeIn delay={0.05}>
             <section aria-labelledby="honors">
               <SectionTitle id="honors">Honors</SectionTitle>
               <ul className="divide-y divide-line border-y border-line">
@@ -99,14 +111,14 @@ export default function AboutPage() {
           </FadeIn>
         </div>
 
-        <aside className="md:col-span-4">
-          <div className="md:sticky md:top-24 space-y-5">
+        {/* Education, skills, off-screen */}
+        <FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <SideCard title="Education">
               <p className="text-ink font-semibold">{education.school}</p>
               <p className="text-sm text-muted mt-1">{education.graduation}</p>
-              <dl className="grid grid-cols-2 gap-3 mt-4">
-                <Stat label="GPA" value={education.gpa} />
-                <Stat label="Rank" value={education.rank} />
+              <dl className="mt-4">
+                <Stat label="Class rank" value={education.rank} />
               </dl>
               <div className="mt-5 pt-4 border-t border-line space-y-2">
                 <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-faint">Dual enrollment</p>
@@ -141,17 +153,8 @@ export default function AboutPage() {
                 Hitting the gym, playing soccer, and supporting Bayern Munich &amp; the Atlanta Hawks.
               </p>
             </SideCard>
-
-            <a
-              href={site.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center h-12 rounded-xl bg-accent text-on-accent font-semibold hover:brightness-110 transition"
-            >
-              View full resume <ArrowUpRight className="ml-2 h-4 w-4" />
-            </a>
           </div>
-        </aside>
+        </FadeIn>
       </div>
     </div>
   );
@@ -167,7 +170,7 @@ function SectionTitle({ id, children }: { id: string; children: React.ReactNode 
 
 function SideCard({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="rounded-2xl bg-surface border border-line-strong p-6">
+    <section className="rounded-2xl bg-surface border border-line-strong p-6 h-full">
       <h2 className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent mb-4">{title}</h2>
       {children}
     </section>
